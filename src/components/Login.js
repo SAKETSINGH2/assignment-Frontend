@@ -2,11 +2,13 @@ import axios from "axios";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "./context/userAuth";
 
 const baseUrl = process.env.REACT_APP_BACKEND_API_BASE_URL;
 
 const Login = () => {
     const navigate = useNavigate();
+    const { setToken } = useAuth();
 
     const {
         register,
@@ -23,8 +25,8 @@ const Login = () => {
                     toast.success(
                         response.data.message || "user login successfull"
                     );
-                    localStorage.setItem("token", response.data.token);
-                    navigate("/Profile");
+                    setToken(response.data.token);
+                    navigate("/");
                 } else {
                     toast.success(
                         response.data.message || "user login successfull"
@@ -35,7 +37,7 @@ const Login = () => {
                 }
             }
         } catch (error) {
-            toast.error(error.message);
+            toast.error(error.response.data.message);
         }
     };
 
@@ -48,7 +50,8 @@ const Login = () => {
                 <div className="flex flex-col border-0.5 shadow-richblue-25 shadow-md p-10 rounded-md w-[400px]">
                     <label
                         className="font-semibold ml-1 text-richblue-100"
-                        htmlFor="">
+                        htmlFor=""
+                    >
                         MobileNo:{" "}
                     </label>{" "}
                     <input
@@ -66,7 +69,8 @@ const Login = () => {
                     )}{" "}
                     <label
                         className="font-semibold ml-1 text-richblue-100"
-                        htmlFor="">
+                        htmlFor=""
+                    >
                         Password:{" "}
                     </label>{" "}
                     <input
@@ -85,7 +89,8 @@ const Login = () => {
                     {/* <input type="submit" /> */}{" "}
                     <button
                         type="submit"
-                        className="text-richblue-600 p-1 rounded-md bg-richblue-25 m-2 font-semibold">
+                        className="text-richblue-600 p-1 rounded-md bg-richblue-25 m-2 font-semibold"
+                    >
                         {" "}
                         Submit{" "}
                     </button>{" "}
