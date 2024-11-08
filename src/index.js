@@ -7,12 +7,15 @@ import { RouterProvider } from "react-router-dom";
 import { appRouter } from "./App";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { AuthProvider } from "./components/context/userAuth";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
     <>
-        <ToastContainer />
-        <RouterProvider router={appRouter} />
+        <AuthProvider>
+            <ToastContainer />
+            <RouterProvider router={appRouter} />
+        </AuthProvider>
     </>
 
     // If you want to start measuring performance in your app, pass a function

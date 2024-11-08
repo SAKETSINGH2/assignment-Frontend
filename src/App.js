@@ -7,6 +7,7 @@ import Home from "./components/Home";
 import Profile from "./components/Profile";
 import OtpVerification from "./components/otpVerification";
 import Navbar from "./components/Navbar";
+import ProtectedRoute from "./components/protectedRoute";
 
 function AppLayout() {
     return (
@@ -39,11 +40,19 @@ export const appRouter = createBrowserRouter([
             },
             {
                 path: "/profile",
-                element: <Profile />,
+                element: (
+                    <ProtectedRoute>
+                        <Profile />
+                    </ProtectedRoute>
+                ),
             },
             {
                 path: "/otp_verification",
-                element: <OtpVerification />,
+                element: (
+                    <ProtectedRoute>
+                        <OtpVerification />
+                    </ProtectedRoute>
+                ),
             },
         ],
     },
