@@ -49,9 +49,9 @@ export const appRouter = createBrowserRouter([
             {
                 path: "/otp_verification",
                 element: (
-                    <ProtectedRoute>
-                        <OtpVerification />
-                    </ProtectedRoute>
+                    // <ProtectedRoute>
+                    <OtpVerification />
+                    // </ProtectedRoute>
                 ),
             },
         ],
