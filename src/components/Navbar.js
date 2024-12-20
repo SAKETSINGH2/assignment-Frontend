@@ -5,7 +5,7 @@ const Navbar = () => {
     const { isLoggedIn, logout } = useAuth();
 
     return (
-        <div className="bg-cyan-900">
+        <div className="bg-cyan-700">
             <div className="flex justify-between font-semibold text-white gap-x-6 p-4">
                 <div>
                     {" "}
