@@ -105,7 +105,7 @@ const Profile = () => {
 
     return (
         <div className="bg-richblack-800 min-h-screen flex flex-col items-center py-10">
-            <div className="bg-white shadow-md rounded-lg p-6 w-96 text-center ">
+            <div className="shadow-md rounded-lg p-6 w-96 text-center bg-green-200">
                 <img
                     src=".././profileImage.webp"
                     alt="profilePic"
